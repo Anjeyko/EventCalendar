@@ -16,11 +16,29 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="<%= events_path %>">Events <span class="sr-only">(current)</span></a>
+            
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_event_path %>">Create Event</a>
-          </li>
+          
         </ul>
+        <ul class="navbar-nav pull-xs-right">
+          <% if user_signed_in? %>
+          <%= link_to 'Нова стаття', new_event_path, class: 'btn btn-outline-primary pull-xs-right' %>
+          <li class="nav-item active">
+          <%= link_to "Профіль",  edit_user_registration_path, class: "nav-link" %>
+          </li>
+           <li class="nav-item active">
+          <%= link_to "Вихід",  destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <%else%>
+          <li class="nav-item active">
+          <%= link_to "Вхід",  new_user_session_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item active">
+          <%= link_to "Реєстрація",  new_user_registration_path, class: "nav-link" %>
+          </li>
+          <%end%>
+          </ul>
       </div>
       </nav>
     </div>
