@@ -1,37 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.start_time %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h4>Events</h4>
+<% if user_signed_in? %>
+<%= render @events %>
 
 <br>
 
-<%= month_calendar events: @events do |date, events| %>
-  <%= date %>
-
-  <% events.each do |event| %>
-    <div>
-      <%= event.name %>
-    </div>
+<div class="event-calendar">
+  <%= month_calendar events: @events do |date, events| %>
+    <%= date.day %>
+      <% events.each do |event| %>
+        <div>
+          <% if event.user == current_user%>
+            <%= link_to event.name, event %>
+            <% end %>
+        </div>
+      <% end %>
   <% end %>
+</div>
 <% end %>
