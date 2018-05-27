@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :home]
 
   # GET /events
   # GET /events.json
@@ -61,6 +61,10 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, success: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def home
   end
 
   private

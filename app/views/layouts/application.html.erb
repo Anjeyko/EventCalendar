@@ -14,10 +14,11 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Events",  events_path, class: "nav-link" %>
           </li>
-          <% if user_signed_in? %>
+          
           <li class="nav-item active">
             <%= link_to 'Create Event', new_event_path, class: 'nav-link' %>
           </li>
@@ -27,18 +28,18 @@
         <ul class="navbar-nav pull-xs-right">
           <% if user_signed_in? %>
           <li class="nav-item active">
-          <%= link_to "Профіль",  edit_user_registration_path, class: "nav-link" %>
+          <%= link_to "Profile",  edit_user_registration_path, class: "nav-link" %>
           </li>
            <li class="nav-item active">
-          <%= link_to "Вихід",  destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
           <%else%>
           <li class="nav-item active">
-          <%= link_to "Вхід",  new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign In",  new_user_session_path, class: "nav-link" %>
           </li>
 
           <li class="nav-item active">
-          <%= link_to "Реєстрація",  new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Sign Up",  new_user_registration_path, class: "nav-link" %>
           </li>
           <%end%>
           </ul>

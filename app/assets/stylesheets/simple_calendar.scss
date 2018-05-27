@@ -62,6 +62,11 @@
     @extend .btn-primary;*/
   }
 
+.calendar-heading{
+  text-align: center;
+  padding: 20px
+}
+
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}
@@ -87,5 +92,7 @@
   }
   .current-month {}
 
-  .has-events {}
+  .has-events {
+    color: green;
+  }
 }
