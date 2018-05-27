@@ -5,9 +5,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.create_event.subject
   #
-  def create_event(current_user)
+  def create_event(current_user, event)
     @current_user = current_user
+    @event = event
 
-    mail to: current_user.email, subject: "New Event"
+    mail(to: current_user.email, subject: "New Event").deliver
   end
 end
