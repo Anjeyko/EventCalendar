@@ -12,7 +12,7 @@
 <h2>Notification:</h2>
 <% @event.notifications.each do |notification| %>
   <p>
-    <strong>Descriprion:</strong>
+    <strong>Description:</strong>
     <%= notification.description %>
     |
      <%= link_to "Delete", [notification.event, notification], method: :delete, data: { confirm: "Are you sure?" } %>

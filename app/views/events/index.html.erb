@@ -3,10 +3,6 @@
 
 <% if user_signed_in? %>
 <h4>Events</h4>
-<%= render @events %>
-
-<br>
-
 <div class="event-calendar">
   <%= month_calendar events: @events do |date, events| %>
     <%= date.day %>
@@ -19,4 +15,6 @@
       <% end %>
   <% end %>
 </div>
+<br>
+<%= render @events %>
 <% end %>
