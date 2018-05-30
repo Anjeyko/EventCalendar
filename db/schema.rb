@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_194639) do
+ActiveRecord::Schema.define(version: 2018_05_30_065327) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_05_29_194639) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
+    t.index ["event_id"], name: "index_notifications_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|

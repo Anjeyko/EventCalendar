@@ -11,4 +11,11 @@ class UserMailer < ApplicationMailer
 
     mail(to: current_user.email, subject: "New Event").deliver
   end
+
+  def send_notification(current_user, event)
+    @current_user = current_user
+    @event = event
+
+    mail(to: current_user.email, subject: "Notification").deliver
+  end
 end
