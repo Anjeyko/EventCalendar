@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        UserMailer.delay(run_at: @event.start_time).create_event(current_user, @event)
+        #UserMailer.delay(run_at: @event.start_time).create_event(current_user, @event)
         format.html { redirect_to @event, success: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else

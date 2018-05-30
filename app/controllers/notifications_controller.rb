@@ -6,6 +6,13 @@ class NotificationsController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def destroy
+    @event = Event.find(params[:event_id])
+    @notification = @event.notifications.find(params[:id])
+    @notification.destroy
+    redirect_to event_path(@event)
+  end
+
   private
 
   def notification_params

@@ -14,11 +14,13 @@
   <p>
     <strong>Descriprion:</strong>
     <%= notification.description %>
+    |
+     <%= link_to "Delete", [notification.event, notification], method: :delete, data: { confirm: "Are you sure?" } %>
   </p>
  
   <p>
     <strong>Time:</strong>
-    <%= notification.send_time %>
+    <%= notification.send_time %> 
   </p>
 <% end %>
 
