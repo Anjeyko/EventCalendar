@@ -9,6 +9,34 @@
   <strong>Start time:</strong>
   <%= @event.start_time %>
 </p>
+<h2>Notification:</h2>
+<% @event.notifications.each do |notification| %>
+  <p>
+    <strong>Descriprion:</strong>
+    <%= notification.description %>
+  </p>
+ 
+  <p>
+    <strong>Time:</strong>
+    <%= notification.send_time %>
+  </p>
+<% end %>
+
+<h2>Add notification:</h2>
+<%= form_with(model: [ @event, @event.notifications.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </p>
+  <p>
+    <%= form.label :send_time %><br>
+    <%= form.datetime_select :send_time %>
+  </p>
+  <p>
+    <%= form.submit 'Add Notification', class: "btn btn-primary" %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -20,10 +20,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit
-    #@notification = Notification.find(params[:id])
-    #.delay(run_at: @notification.send_time).create_event(current_user, @event)
-   
+  def edit 
   end
 
   # POST /events
@@ -48,7 +45,6 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        #UserMailer.delay(run_at: @event.start_time).send_notification(current_user, @event)
         format.html { redirect_to @event, success: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
