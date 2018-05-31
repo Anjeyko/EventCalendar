@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = current_user.events.build
+    @event = current_user.events.build 
   end
 
   # GET /events/1/edit
@@ -27,41 +27,31 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
-
-    respond_to do |format|
       if @event.save
         #UserMailer.delay(run_at: @event.start_time).create_event(current_user, @event)
-        format.html { redirect_to @event, success: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        redirect_to events_path, success: 'Event was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+        flash.now[:danger] = "Error: Event doesn't created"
+        render :new 
+      end   
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, success: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        redirect_to @event, success: 'Event was successfully updated.' 
       else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+        flash.now[:danger] = "Error: Event doesn't update"
+        render :edit 
+      end 
   end
 
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, success: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to events_url, success: 'Event was successfully destroyed.'
   end
 
 
