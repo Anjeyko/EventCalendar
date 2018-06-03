@@ -1,3 +1,5 @@
+
+<div class="cont">
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -26,12 +28,30 @@
     <%= form.text_field :description %>
   </p>
   <p>
-    <%= form.label :send_time %><br>
-    <%= form.datetime_select :send_time %>
+     <div class="form-group">
+          <%= form.label :send_time %>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker2'>
+                <%= form.text_field :send_time, class: "form-control" %>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+          $(function () {
+            $('#datetimepicker2').datetimepicker({
+              format: 'DD/MM/YYYY HH:mm'
+            });
+          });
+        </script>
   </p>
   <p>
     <%= form.submit 'Add Notification', class: "btn btn-primary" %>
   </p>
 <% end %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> |
+<%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: 'Ви впевненні?' } %>
+</div>

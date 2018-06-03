@@ -1,23 +1,24 @@
- <div class="row">
-      <div class="col-md-4">
-      <h4>Events</h4>
-        <%= render @events %>
+<div class="calendar-row">
+  <div class="col-lg-12">
+    <% if user_signed_in? %>
+      <div class="event-calendar" data-toggle="modal" data-target="#exampleModal">
+        <%= month_calendar events: @events do |date, events| %>
+          <%= date.day %>
+            <% events.each do |event| %>
+              <div class="test">
+                <% if event.user == current_user%>
+                  <%= link_to event.name, event%>
+                <% end %>
+                
+              </div>
+              
+            <% end %>
+
+         <% end %>
+          
       </div>
-      <div class="col-md-8">
-        <% if user_signed_in? %>
-        <div class="event-calendar">
-          <%= month_calendar events: @events do |date, events| %>
-            <%= date.day %>
-              <% events.each do |event| %>
-                <div>
-                  <% if event.user == current_user%>
-                    <%= link_to event.name, event %>
-                    <% end %>
-                </div>
-              <% end %>
-          <% end %>
-        </div>
-        <br>
-        <% end %>
-      </div>
-  </div>
+    <br>
+  <%end%>
+</div>
+
+                  

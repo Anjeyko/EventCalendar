@@ -14,4 +14,162 @@
  *= require_self
  *= require simple_calendar
  */
- @import "bootstrap";
+ @import 'bootstrap-sprockets';
+ @import 'bootstrap';
+ @import 'bootstrap-datetimepicker';
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px);
+  width: 100px;
+  float: left;
+  margin-right: 7px;
+}
+
+header {
+  height: 50px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgb(199, 198, 198);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .nav-block {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    .nav-item {
+      float: left;
+      margin-right: 20px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.cont {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+.calendar-row {
+  width: 100%;
+  height: 100%;
+}
+
+.simple-calendar {
+  height: 100vh;
+  table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    height: 82%;
+  }
+  tr {
+    border-collapse: collapse;
+  }
+  th {
+    padding: 6px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-top: 0px none rgb(51, 51, 51);
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  td {
+    height: 15vh;
+    vertical-align: top;
+    width: 14%;
+    border: 1px solid rgb(221, 221, 221);
+    div {
+      background-color: #BECD3B;
+      margin-bottom: 2px;
+      padding-left: 2px;
+      border-radius: 5px;
+      a {
+        display: block;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+  .day {
+
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .next-month,
+  .previous-month {
+    /* button styles */
+    margin: 0px 10px;
+    /* or extend Bootstrap button classes 
+    @extend .btn;
+    @extend .btn-primary;*/
+  }
+  .calendar-heading {
+    text-align: center;
+    padding: 20px
+  }
+  a {
+    text-decoration: none;
+  }
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+  .today {
+    background: rgb(208, 255, 177)!important;
+  }
+  .past {}
+  .future {}
+  .start-date {}
+  .prev-month {
+    background: #DDD;
+  }
+  .next-month {
+    background: #DDD;
+  }
+  .current-month {}
+  .has-events {
+    color: green;
+  }
+}

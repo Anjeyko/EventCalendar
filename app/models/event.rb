@@ -2,5 +2,5 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :notifications, dependent: :destroy
   
-  validates :name, presence: true
+  validates_presence_of :name, :start_time
 end

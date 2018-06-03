@@ -11,9 +11,9 @@
       <time><%= event.start_time %></time>
        
       |
-      <%= link_to 'Редагувати', edit_event_path(event) %>
+      <%= link_to 'Edit', edit_event_path(event) %>
       |
-      <%= link_to 'Видалити', event_path(event), method: :delete, data: { confirm: 'Ви впевненні?' } %>
+      <%= link_to 'Delete', event_path(event), method: :delete, data: { confirm: 'Ви впевненні?' } %>
       
     </small>
  

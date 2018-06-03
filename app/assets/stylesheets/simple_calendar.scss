@@ -1,4 +1,24 @@
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+.calendar-row {
+  width: 100%;
+  height: 100%;
+}
+
 .simple-calendar {
+  height: 100vh;
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
@@ -8,12 +28,11 @@
     box-sizing: border-box;
     max-width: 100%;
     width: 100%;
+    height: 82%;
   }
-
   tr {
     border-collapse: collapse;
   }
-
   th {
     padding: 6px;
     border-bottom: 2px solid rgb(221, 221, 221);
@@ -26,47 +45,44 @@
   }
 
   td {
-    padding: 6px;
+    height: 15vh;
     vertical-align: top;
     width: 14%;
-
-    border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-right-color: rgb(221, 221, 221);
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-bottom-color: rgb(221, 221, 221);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-left-color: rgb(221, 221, 221);
-    border-left-style: solid;
-    border-left-width: 1px;
+    border: 1px solid rgb(221, 221, 221);
+    div {
+      background-color: #BECD3B;
+      margin-bottom: 2px;
+      padding-left: 2px;
+      border-radius: 5px;
+      a {
+        display: block;
+        text-decoration: none;
+        color: white;
+      }
+    }
   }
-
   .day {
-    height: 80px;
+
   }
   h2 {
     font-size: 14px;
     font-weight: 400;
   }
-
-  .next-month, .previous-month {
+  .next-month,
+  .previous-month {
     /* button styles */
     margin: 0px 10px;
-
     /* or extend Bootstrap button classes 
     @extend .btn;
     @extend .btn-primary;*/
   }
-
-.calendar-heading{
-  text-align: center;
-  padding: 20px
-}
-
+  .calendar-heading {
+    text-align: center;
+    padding: 20px
+  }
+  a {
+    text-decoration: none;
+  }
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}
@@ -74,16 +90,12 @@
   .wday-4 {}
   .wday-5 {}
   .wday-6 {}
-
   .today {
-    background: rgb(248, 248, 67)
+    background: rgb(208, 255, 177);
   }
-
   .past {}
   .future {}
-
   .start-date {}
-
   .prev-month {
     background: #DDD;
   }
@@ -91,7 +103,6 @@
     background: #DDD;
   }
   .current-month {}
-
   .has-events {
     color: green;
   }
